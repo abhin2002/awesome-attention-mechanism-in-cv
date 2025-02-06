@@ -1,4 +1,5 @@
 from .vgg import *
+from .vgg11 import *
 from .dpn import *
 from .lenet import *
 from .senet import *
@@ -18,3 +19,5 @@ from .dla_simple import *
 from .dla import *
 from .sa_resnet import *
 from .sanet import *
+
+# print("Hello")
