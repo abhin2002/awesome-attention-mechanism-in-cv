@@ -167,3 +167,35 @@ for epoch in range(start_epoch, start_epoch+100):
 end_time = datetime.now()
 
 print('Duration: '+str(end_time - start_time))
+
+# Training complete - Print Summary
+print("\n===== Training Summary =====")
+print(f"Total Training Time: {end_time - start_time}")
+print(f"Best Test Accuracy Achieved: {best_acc:.2f}%")
+
+# Reload best model for final test loss evaluation
+checkpoint = torch.load('./checkpoint/ckpt.pth')
+net.load_state_dict(checkpoint['net'])
+net.eval()
+
+final_test_loss = 0
+correct = 0
+total = 0
+
+with torch.no_grad():
+    for batch_idx, (inputs, targets) in enumerate(testloader):
+        inputs, targets = inputs.to(device), targets.to(device)
+        outputs = net(inputs)
+        loss = criterion(outputs, targets)
+
+        final_test_loss += loss.item()
+        _, predicted = outputs.max(1)
+        total += targets.size(0)
+        correct += predicted.eq(targets).sum().item()
+
+final_test_loss /= len(testloader)
+final_test_acc = 100. * correct / total
+
+print(f"Final Test Loss: {final_test_loss:.4f}")
+print(f"Final Test Accuracy: {final_test_acc:.2f}%")
+print("============================\n")
