@@ -19,5 +19,6 @@ from .dla_simple import *
 from .dla import *
 from .sa_resnet import *
 from .sanet import *
+from .vgg11_cbam import *
 
 # print("Hello")
