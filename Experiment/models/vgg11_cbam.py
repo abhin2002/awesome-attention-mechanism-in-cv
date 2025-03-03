@@ -23,7 +23,7 @@ class VGG11_CBAM(nn.Module):
 
             self.conv_block(512, 512),
             self.conv_block(512, 512),
-            nn.MaxPool2d(kernel_size=2, stride=2),
+            # nn.MaxPool2d(kernel_size=2, stride=2),
 
             nn.AdaptiveAvgPool2d(1)  # Global Average Pooling
         )
