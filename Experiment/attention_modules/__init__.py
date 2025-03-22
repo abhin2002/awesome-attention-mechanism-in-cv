@@ -1,2 +1,3 @@
 from attention_modules.cbam import ChannelAttention, SpatialAttention
 from attention_modules.DoubleAttention import DoubleAttentionLayer
+from attention_modules.TripletAttention import TripletAttention

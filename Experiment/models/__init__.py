@@ -21,5 +21,6 @@ from .sa_resnet import *
 from .sanet import *
 from .vgg11_cbam import *
 from .VGG11_A2Net import *
+from .VGG11_TripletAttention import *
 
 # print("Hello")
