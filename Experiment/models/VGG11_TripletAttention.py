@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from AttentionModule.TripletAttention import TripletAttention  # Make sure to use your .py file correctly
+from attention_modules.TripletAttention import TripletAttention  # Make sure to use your .py file correctly
 
 class VGG11_TripletAttention(nn.Module):
     def __init__(self, num_classes=10):
